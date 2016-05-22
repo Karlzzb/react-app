@@ -28,12 +28,8 @@ var ADPROJECTARRAY=[
 
 
 var FilterSelect = React.createClass({
-	getInitialState: function() {
-		return {selvalue: ''};
-	},
-	handleSelectChange: function(e) {
-		this.props.callbackParent(this.state.selvalue);
-		this.setState({selvalue: e.target.value});
+	handleSelectChange: function(event) {
+		this.props.callbackParent(event.target.value);		
 	},
 	render: function() {
 	var options = [];
@@ -44,8 +40,8 @@ var FilterSelect = React.createClass({
 		<div class="form-group">
 			<label class="col-xs-12 col-sm-3 control-label"></label>
 			<div class="col-xs-12 col-sm-5">
-				<span class="block input-icon input-icon-right" onChange={this.handleSelectChange}> 
-					<select name="adSatus" class="number" >
+				<span class="block input-icon input-icon-right" > 
+					<select name="adSatus" class="number" onChange={this.handleSelectChange}>
 					{options}
 					</select>
 				</span>
